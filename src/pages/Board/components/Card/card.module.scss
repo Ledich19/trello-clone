@@ -1,0 +1,14 @@
+@import '../../../../variables';
+
+.card {
+  box-sizing: border-box;
+  margin-top: $size_1;
+  background-color: $secondary-color;
+  color: $text-color;
+  padding: $size_1 $size_2;
+  border: none;
+  border-radius: $border-radius-size;
+  cursor: pointer;
+  width: 100%;
+
+}

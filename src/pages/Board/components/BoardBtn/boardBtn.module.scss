@@ -1,0 +1,25 @@
+@import '../../../../variables';
+
+.button {
+  width: 100%;
+  border: none;
+  border-radius: $border-radius-size;
+  cursor: pointer;
+  padding: $size_1 $size_2;
+  &.light {
+    background-color: $secondary-color;
+    color: $text-color;
+
+    &:hover {
+      background-color: $active-color;
+    }
+  }
+  &.dark {
+    background-color: $primary-color;
+    color: $text-color;
+
+    &:hover {
+      background-color: $active-color;
+    }
+  }
+}

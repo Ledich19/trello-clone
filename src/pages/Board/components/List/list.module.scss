@@ -1,5 +1,30 @@
+@import '../../../../variables';
+
 .list {
-  background: #8b8787;
+  box-sizing: border-box;
+  padding: $size_2;
+  background: $primary-color;
+  border-radius: $border-radius-size;
+  height: 100%;
 }
+
 .title {
+  color: $text-secondary;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.button {
+  background-color: $btn-color;
+  color: $text-color;
+  padding: $size_1 $size_2;
+  border: none;
+  border-radius: $border-radius-size;
+  cursor: pointer;
+  width: 100%;
+  margin-top: $size_1;
+
+  &:hover {
+    background-color: $active-color;
+  }
 }

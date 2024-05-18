@@ -1,12 +1,37 @@
+@import '../../variables';
+@import '../../mixin.scss';
+
 .board {
+  height: 100vh;
 }
 .head {
+  box-sizing:border-box;
+  position: absolute;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: $size_2;
+  width: 100%;
 }
+.title{
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .wrapper {
+  box-sizing: border-box;
+  padding: $size_2;
+  padding-top: 80px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); 
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  overflow-x: auto;
+  height: 100%;
+  // overflow-x: auto;
+}
+.back {
+  @include button-style; 
+  width: 150px; 
+}
+
+.button {
+  @include button-style; 
 }
