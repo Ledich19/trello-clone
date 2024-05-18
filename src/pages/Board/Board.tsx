@@ -1,18 +1,17 @@
+import React from 'react';
 import { useAppSelector } from '../../app/hooks';
 import List from './components/List/List';
 import s from './board.module.scss';
-import BoardBtn from './components/BoardBtn/BoardBtn';
 
 const Board: React.FC = () => {
   const board = useAppSelector((state) => state.board);
-  console.log(board);
 
   return (
     <div className={s.board}>
       <div className={s.head}>
         <button className={s.back}>+ Add list</button>
         <div className={s.title}>{board.title}</div>
-        <div></div>
+        <div />
       </div>
       <div className={s.wrapper}>
         {board.lists.map((list) => (
@@ -20,7 +19,7 @@ const Board: React.FC = () => {
         ))}
 
         <div>
-        <button className={s.button}>{`<- Home`}</button>
+          <button className={s.button}>{'<- Home'}</button>
         </div>
       </div>
     </div>

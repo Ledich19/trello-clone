@@ -16,5 +16,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['buffer'],
   },
-  base: 'https://ledich19.github.io/trello-clone',
+  base: 'https://ledich19.github.io/',
 });

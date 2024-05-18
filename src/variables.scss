@@ -1,10 +1,10 @@
-$primary-color: #838282;
+$primary-color: #313745;
 $secondary-color: #ebebeb;
 
 $btn-color: #acacac;
 
 
-$text-color: #333333;
+$text-color: #5C6371;
 $text-secondary: #ffffff;
 
 $active-color: #636363;
@@ -12,7 +12,16 @@ $hover-color: #636363;
 $accent-color: #0000ff;
 $background-color: #f0f0f0;
 
-$border-radius-size: 5px;
+$border-radius-size: 10px;
 
 $size_1: 8px;
 $size_2: 16px;
+
+$font-size-small: 8px;
+$font-size-medium: 16px;
+$font-size-large: 24px;
+$font-size-xlarge: 32px;
+
+@function sizes($number) {
+  @return $number * 8px;
+}
