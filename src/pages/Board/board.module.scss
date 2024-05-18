@@ -1,0 +1,12 @@
+.board {
+}
+.head {
+  display: flex;
+  justify-content: space-around;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 20px;
+  overflow-x: auto;
+}

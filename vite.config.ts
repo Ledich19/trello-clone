@@ -1,16 +1,20 @@
-import { defineConfig } from "vitest/config"
-import react from "@vitejs/plugin-react"
+/* eslint-disable import/no-extraneous-dependencies */
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    open: true,
-  },
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: "src/setupTests",
-    mockReset: true,
+    environment: 'jsdom',
+    setupFiles: './setupTest.ts',
   },
-})
+  optimizeDeps: {
+    exclude: ['buffer'],
+  },
+  base: 'https://ledich19.github.io/trello-clone',
+});
