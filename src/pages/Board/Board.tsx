@@ -5,27 +5,36 @@ import List from './components/List/List';
 import s from './board.module.scss';
 import TitleEditor from './components/List/TitleEditor/TitleEditor';
 import { getBoardById, updateBoard } from '../../redux/boards/operations';
+import Modal from './components/Modal/Modal';
 
 const Board: React.FC = () => {
   const { board } = useAppSelector((state) => state.boards);
+  const [isOpen, setIsOpen] = useState(false);
 
   const dispatch = useAppDispatch();
   const { id } = useParams();
+  const boardId = id !== undefined && !Number.isNaN(Number(id)) ? Number.parseInt(id, 10) : null;
+
+  const handleOpenModal = (): void => {
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = (): void => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
-    if (id) {
-      const boardId = Number.parseInt(id, 10);
+    if (boardId) {
       dispatch(getBoardById(boardId));
     }
-  }, [id, dispatch]);
+  }, [dispatch, boardId]);
 
   const onTitleChange = (title: string): void => {
     // console.log(title);
   };
 
   const onBoardTitleChange = (title: string): void => {
-    if (id) {
-      const boardId = Number.parseInt(id, 10);
+    if (boardId) {
       dispatch(updateBoard({ title, id: boardId }));
     }
   };
@@ -43,8 +52,11 @@ const Board: React.FC = () => {
         ))}
 
         <div>
-          <button className={s.button}>+ Add list</button>
+          <button onClick={handleOpenModal} className={s.button}>
+            + Add list
+          </button>
         </div>
+        <Modal isOpen={isOpen} onClose={handleCloseModal} boardId={boardId} />
       </div>
     </div>
   );

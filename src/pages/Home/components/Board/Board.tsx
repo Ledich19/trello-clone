@@ -3,11 +3,11 @@ import s from './board.module.scss';
 
 interface IProps {
   title: string;
-  custom: { [key: string]: string };
+  custom: { [key: string]: string } | undefined;
 }
 
 const Board: React.FC<IProps> = ({ title, custom }) => (
-  <button className={s.board} style={custom}>
+  <button className={s.board} style={custom || {}}>
     {title}
   </button>
 );
