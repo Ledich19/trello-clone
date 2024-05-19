@@ -3,7 +3,7 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { counterSlice } from '../features/counter/counterSlice';
 import { quotesApiSlice } from '../features/quotes/quotesApiSlice';
-import boardSlice from '../redux/board';
+import boardSlice from '../redux/board/board';
 import boardsSlice from '../redux/boards/boards';
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.

@@ -1,12 +1,14 @@
+@import 'variables';
+
 @mixin button-style {
   width: 100%;
   border: none;
   border-radius: $border-radius-size;
   cursor: pointer;
   padding: $size_1 $size_2;
-  background-color: $primary-color;
+  background-color: $btn-color;
   color: $text-color;
   &:hover {
-    background-color: $active-color;
+    background-color: $hover-color;
   }
 }

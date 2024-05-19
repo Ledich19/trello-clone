@@ -1,11 +1,16 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { getAllBoards } from './operations';
+import { getAllBoards, getBoardById } from './operations';
 
 type InitialState = {
+  board: IBoardFull;
   boards: IBoard[];
 };
 
 const initialState: InitialState = {
+  board: {
+    title: '',
+    lists: [],
+  },
   boards: [],
 };
 
@@ -24,14 +29,15 @@ const boardsSlice = createSlice({
         ...state,
         boards: action.payload,
       }))
-      .addCase(getAllBoards.rejected, handleRejected);
+      .addCase(getAllBoards.rejected, handleRejected)
 
-    // .addCase(addBoard.pending, handlePending)
-    // .addCase(addBoard.fulfilled, (state: InitialState, action: PayloadAction<IBoard[]>) => ({
-    //   ...state,
-    //   boards: state.boards,
-    // }))
-    // .addCase(addBoard.rejected, handleRejected);
+      .addCase(getBoardById.pending, handlePending)
+      // eslint-disable-next-line max-len
+      .addCase(getBoardById.fulfilled, (state: InitialState, action: PayloadAction<IBoardFull>) => ({
+        ...state,
+        board: action.payload,
+      }))
+      .addCase(getBoardById.rejected, handleRejected);
   },
 });
 

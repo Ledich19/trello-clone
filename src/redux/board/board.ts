@@ -37,6 +37,15 @@ const boardSlice = createSlice({
   name: 'board',
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    // builder
+    // .addCase(getAllBoards.pending, handlePending)
+    // .addCase(getAllBoards.fulfilled, (state: InitialState, action: PayloadAction<IBoard[]>) => ({
+    //   ...state,
+    //   boards: action.payload,
+    // }))
+    // .addCase(getAllBoards.rejected, handleRejected);
+  },
 });
 
 // export const {} = projectsSlice.actions;

@@ -1,30 +1,30 @@
 @import '../../../../variables';
+@import '../../../../mixin.scss';
 
 .list {
   box-sizing: border-box;
-  padding: $size_2;
+  padding: sizes(2);
   background: $primary-color;
   border-radius: $border-radius-size;
   height: 100%;
 }
 
 .title {
+  box-sizing: border-box;
   color: $text-secondary;
   font-weight: bold;
   font-size: 20px;
+  height: sizes(3);
+}
+.input {
+  box-sizing: border-box;
+  height: sizes(3);
+  padding: sizes(1);
+  width: 100%;
+  border-radius: $border-radius-size;
 }
 
 .button {
-  background-color: $btn-color;
-  color: $text-color;
-  padding: $size_1 $size_2;
-  border: none;
-  border-radius: $border-radius-size;
-  cursor: pointer;
-  width: 100%;
-  margin-top: $size_1;
-
-  &:hover {
-    background-color: $active-color;
-  }
+  @include button-style;
+  margin-top: sizes(1);
 }

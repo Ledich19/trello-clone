@@ -1,17 +1,20 @@
-import BoardBtn from '../BoardBtn/BoardBtn';
+import React, { useEffect, useRef, useState } from 'react';
 import Card from '../Card/Card';
 import s from './list.module.scss';
+import TitleEditor from './TitleEditor/TitleEditor';
 
 interface IProps {
   title: string;
   cards: ICard[];
+  onTitleChange: (newTitle: string) => void;
 }
 
-const List: React.FC<IProps> = ({ title, cards }) => {
+const List: React.FC<IProps> = ({ title, cards, onTitleChange }) => {
+  useEffect(() => {}, []);
+
   return (
     <div className={s.list}>
-      <div className={s.title}>{title}</div>
-
+      <TitleEditor title={title} onTitleChange={onTitleChange} />
       <div className={s.wrapper}>
         {cards.map((card) => (
           <Card key={card.id} title={card.title} />
