@@ -10,6 +10,14 @@ interface IListRequest {
     position: 2;
   };
 }
+interface IListUpdateRequest {
+  boardId: number;
+  id: number;
+  data: {
+    title: string;
+    position?: 2;
+  };
+}
 interface IListResponse {
-  result: 'Created';
+  result: 'Created' | 'Updated';
 }

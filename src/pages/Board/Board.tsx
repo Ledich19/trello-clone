@@ -29,10 +29,6 @@ const Board: React.FC = () => {
     }
   }, [dispatch, boardId]);
 
-  const onTitleChange = (title: string): void => {
-    // console.log(title);
-  };
-
   const onBoardTitleChange = (title: string): void => {
     if (boardId) {
       dispatch(updateBoard({ title, id: boardId }));
@@ -48,7 +44,7 @@ const Board: React.FC = () => {
       </div>
       <div className={s.wrapper}>
         {(board.lists || []).map((list) => (
-          <List key={list.id} title={list.title} cards={list.cards} onTitleChange={onTitleChange} />
+          <List key={list.id} title={list.title} cards={list.cards} boardId={boardId} id={list.id} />
         ))}
 
         <div>

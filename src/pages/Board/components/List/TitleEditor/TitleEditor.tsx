@@ -1,13 +1,14 @@
+/* eslint-disable react/require-default-props */
 import React, { useEffect, useRef, useState } from 'react';
 import s from './titleEditor.module.scss';
 
 interface TitleEditorProps {
   title: string;
+  className?: string;
   onTitleChange: (newTitle: string) => void;
-  className: string;
 }
 
-const TitleEditor: React.FC<TitleEditorProps> = ({ title, onTitleChange, className }) => {
+const TitleEditor: React.FC<TitleEditorProps> = ({ title, onTitleChange, className = '' }) => {
   const [isInput, setIsInput] = useState(false);
   const [inputValue, setInputValue] = useState(title);
   const inputRef = useRef<HTMLInputElement>(null);

@@ -92,17 +92,15 @@ export const addList = createAsyncThunk('list/addBoard', async (values: IListReq
   }
 });
 
-// export const updateBoard = createAsyncThunk('boards/getBoardById', async (values: IBoard, thunkAPI) => {
-//   try {
-//     const { data } = await api.put<{
-//       result: 'Updated';
-//     }>(`board/${values.id}`, values);
-//     thunkAPI.dispatch(getBoardById(values.id));
-//     return data.result;
-//   } catch (error) {
-//     if (error instanceof Error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//     return thunkAPI.rejectWithValue('An error occurred');
-//   }
-// });
+export const updateList = createAsyncThunk('list/getBoardById', async (values: IListUpdateRequest, thunkAPI) => {
+  try {
+    const { data } = await api.put<IListResponse>(`board/${values.boardId}/list/${values.id}`, values.data);
+    thunkAPI.dispatch(getBoardById(values.boardId));
+    return data.result;
+  } catch (error) {
+    if (error instanceof Error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+    return thunkAPI.rejectWithValue('An error occurred');
+  }
+});
