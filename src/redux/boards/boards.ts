@@ -6,12 +6,7 @@ type InitialState = {
 };
 
 const initialState: InitialState = {
-  boards: [
-    { id: 1, title: 'покупки', custom: { background: 'red' } },
-    { id: 2, title: 'підготовка до весілля', custom: { background: 'green' } },
-    { id: 3, title: 'розробка інтернет-магазину', custom: { background: 'blue' } },
-    { id: 4, title: 'курс по просуванню у соцмережах', custom: { background: 'grey' } },
-  ],
+  boards: [],
 };
 
 const handlePending = (state: InitialState): InitialState => state;
@@ -30,6 +25,13 @@ const boardsSlice = createSlice({
         boards: action.payload,
       }))
       .addCase(getAllBoards.rejected, handleRejected);
+
+    // .addCase(addBoard.pending, handlePending)
+    // .addCase(addBoard.fulfilled, (state: InitialState, action: PayloadAction<IBoard[]>) => ({
+    //   ...state,
+    //   boards: state.boards,
+    // }))
+    // .addCase(addBoard.rejected, handleRejected);
   },
 });
 

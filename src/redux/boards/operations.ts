@@ -12,3 +12,16 @@ export const getAllBoards = createAsyncThunk('boards/getAll', async (_, thunkAPI
     return thunkAPI.rejectWithValue('An error occurred');
   }
 });
+
+export const addBoard = createAsyncThunk('categories/addCategory', async (values: Omit<IBoard, 'id'>, thunkAPI) => {
+  try {
+    const { data } = await api.post<IBoards>('board', values);
+    thunkAPI.dispatch(getAllBoards());
+    return data.boards;
+  } catch (error) {
+    if (error instanceof Error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+    return thunkAPI.rejectWithValue('An error occurred');
+  }
+});
